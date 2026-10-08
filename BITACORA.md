@@ -135,3 +135,5 @@
 | 2026-10-07 | Corrección de errores | Corregido error de importación relativa en clasificacion.py |
 | 2026-10-07 | Corrección de codificación | Añadido soporte UTF-8 en prueba_rapida.py para Windows |
 | 2026-10-07 | Prueba exitosa | prueba_rapida.py ejecutado correctamente - modelo ResNet-18 cargado, 16 parches clasificados, resultados guardados |
+| 2026-10-07 | Repositorio git | Inicializado repositorio local, commit inicial creado |
+| 2026-10-07 | GitHub | Proyecto subido a https://github.com/infojulian1002-hub/Ejercicio---Opencode-.git |
