@@ -1,0 +1,31 @@
+# Entorno virtual
+venv/
+env/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Resultados generados (se pueden regenerar)
+resultados/
+
+# Archivos de sistema
+.DS_Store
+Thumbs.db
+
+# Archivos de configuración con credenciales
+.env
+
+# IDE
+.vscode/
+.idea/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Modelos descargados (se descargan automáticamente)
+*.pth
+*.pt

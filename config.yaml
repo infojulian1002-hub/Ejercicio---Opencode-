@@ -1,0 +1,39 @@
+# Configuración del proyecto de clasificación de cobertura terrestre
+
+# Zona de estudio: San Andrés, Colombia
+zona:
+  nombre: "San Andres"
+  latitud: 12.5567
+  longitud: -81.7185
+  # Bounding box (min_lon, min_lat, max_lon, max_lat)
+  bbox: [-81.75, 12.52, -81.68, 12.59]
+
+# Fechas para descarga de imágenes Sentinel-2
+fechas:
+  inicio: "2024-01-01"
+  fin: "2024-12-31"
+  # Nube máxima permitida (%)
+  nube_max: 20
+
+# Configuración del modelo
+modelo:
+  nombre: "resnet18"
+  # Tamaño de parche en píxeles
+  tamano_parche: 64
+  # Clases de EuroSAT
+  clases:
+    - "Cultivo_anual"
+    - "Bosque"
+    - "Matorral"
+    - "Carretera"
+    - "Edificios_industriales"
+    - "Pastizal"
+    - "Cultivo_permanente"
+    - "Residencial"
+    - "Rio"
+    - "Mar_Lago"
+
+# Configuración de la aplicación
+app:
+  titulo: "Clasificación de Cobertura Terrestre - San Andrés"
+  puerto: 8501
