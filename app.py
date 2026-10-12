@@ -29,6 +29,10 @@ from src.stats import calcular_estadisticas, generar_dataframe, imprimir_resumen
 def main():
     """Función principal de la aplicación Streamlit."""
     
+    # Inicializar session_state para el botón de reset
+    if 'reset_umbrales' not in st.session_state:
+        st.session_state.reset_umbrales = False
+    
     # Configuración de página
     st.set_page_config(
         page_title="Clasificador de Cobertura Terrestre",
@@ -66,12 +70,26 @@ def main():
         
         # Umbrales
         st.subheader("Umbrales de Clasificación")
-        mndwi_agua = st.slider("MNDWI Agua", min_value=0.0, max_value=1.0, 
-                               value=UMBRALES_DEFAULT['mndwi_agua'], step=0.05)
-        ndvi_bosque = st.slider("NDVI Bosque", min_value=0.2, max_value=1.0,
-                                value=UMBRALES_DEFAULT['ndvi_bosque_min'], step=0.05)
-        ndbi_urbano = st.slider("NDBI Urbano", min_value=-0.5, max_value=0.5,
-                                value=UMBRALES_DEFAULT['ndbi_urbano'], step=0.05)
+        st.caption("⚠️ Ajusta según la zona. Valores por defecto son solo un punto de partida.")
+        
+        col1, col2 = st.columns([3, 1])
+        with col2:
+            if st.button("🔄 Restablecer valores", help="Volver a los valores por defecto"):
+                st.session_state.reset_umbrales = True
+                st.rerun()
+        
+        if st.session_state.get('reset_umbrales', False):
+            mndwi_agua = UMBRALES_DEFAULT['mndwi_agua']
+            ndvi_bosque = UMBRALES_DEFAULT['ndvi_bosque_min']
+            ndbi_urbano = UMBRALES_DEFAULT['ndbi_urbano']
+            st.session_state.reset_umbrales = False
+        else:
+            mndwi_agua = st.slider("MNDWI Agua", min_value=0.0, max_value=1.0, 
+                                   value=UMBRALES_DEFAULT['mndwi_agua'], step=0.05)
+            ndvi_bosque = st.slider("NDVI Bosque", min_value=0.2, max_value=1.0,
+                                    value=UMBRALES_DEFAULT['ndvi_bosque_min'], step=0.05)
+            ndbi_urbano = st.slider("NDBI Urbano", min_value=-0.5, max_value=0.5,
+                                    value=UMBRALES_DEFAULT['ndbi_urbano'], step=0.05)
         
         # Botón de análisis
         st.markdown("---")

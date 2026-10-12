@@ -53,19 +53,21 @@ CLASES = {
 PALETA_COLORES = [CLASES[i]['color'] for i in range(len(CLASES))]
 
 # =============================================================================
-# UMBRALES DE CLASIFICACIÓN (valores por defecto)
+# UMBRALES DE CLASIFICACIÓN (valores por defecto - punto de partida)
+# IMPORTANTE: Estos valores son un punto de partida. Deben ajustarse según
+# la zona de estudio, condiciones atmosféricas y tipo de cobertura.
 # =============================================================================
 UMBRALES_DEFAULT = {
-    'mndwi_agua': 0.3,        # MNDWI > 0.3 → Agua
+    'mndwi_agua': 0.25,       # MNDWI > 0.25 → Agua
     'ndwi_agua': 0.5,         # NDWI > 0.5 → Agua (alternativo)
     'ndvi_suelo_max': 0.1,    # NDVI < 0.1 → Suelo desnudo
     'ndvi_pastos_min': 0.1,   # NDVI >= 0.1 → Pastos
     'ndvi_pastos_max': 0.3,   # NDVI < 0.3 → Pastos
     'ndvi_agricultura_min': 0.2,  # NDVI >= 0.2 → Agricultura
     'ndvi_agricultura_max': 0.45,  # NDVI < 0.45 → Agricultura
-    'ndvi_bosque_min': 0.4,   # NDVI >= 0.4 → Bosque
+    'ndvi_bosque_min': 0.35,  # NDVI >= 0.35 → Bosque
     'savi_bosque_min': 0.4,   # SAVI >= 0.4 → Bosque (refuerzo)
-    'ndbi_urbano': 0.05,      # NDBI > 0.05 → Urbano
+    'ndbi_urbano': 0.0,       # NDBI > 0.0 → Urbano
 }
 
 # =============================================================================
